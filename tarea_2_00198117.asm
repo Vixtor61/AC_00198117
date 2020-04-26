@@ -67,6 +67,3 @@ jmp12:	add	si,2d
 jmp13:	mov	[220h+si],ax
 	loop	l2
 	int 20h
-
-
-
