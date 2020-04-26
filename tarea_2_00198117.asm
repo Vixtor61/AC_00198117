@@ -39,7 +39,6 @@ section	.text
 	mov	cx, 11
 	mov	si, 0d
 	
-	mov	al,4d
 l1:	mov	[210h+si], ax	
 	mul	bx
 	cmp	ax,256d
