@@ -1,6 +1,6 @@
 	org	100h
+;carnet: 00198117
 section	.text
-			;carnet: 00198117
 			;ej 1			
 	mov	di, 0d
 	mov	cx, 0000h
@@ -32,13 +32,12 @@ msg5	db	"En el segundo"
 mlen5	equ	$ - msg5
 
 section	.text
-			;carnet: 00198117
 			;ej 2 
 	mov	bx, 2			
 	mov 	ax, 4d
 	mov	cx, 11
 	mov	si, 0d
-	
+
 l1:	mov	[210h+si], ax	
 	mul	bx
 	cmp	ax,256d
