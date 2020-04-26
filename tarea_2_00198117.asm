@@ -1,5 +1,4 @@
 	org	100h
-
 section	.text
 			;carnet: 00198117
 ;ej 1			
@@ -91,7 +90,7 @@ lupi:
 	inc	di
 	loop	lupi
 
-	int	20h
+	
 
 section .data
 
@@ -124,5 +123,30 @@ mlen2	equ	$ - msg2
 
 msg1	db	"Solo necesito el 0"
 mlen1	equ	$ - msg1 
+
+
+section	.text
+			;carnet: 00198117
+;ej 2 210
+	
+	mov	bx, 2			
+	mov 	ax, 4d
+	mov	cx, 11
+	mov	si, 0d
+	
+	mov	al,4d
+l1:	mov	[210h+si], ax
+
+	
+	mul	bx
+	cmp	ax,256d
+	ja	jmp2
+	inc	si
+	jmp	jmp3
+jmp2:	add	si,2d
+jmp3:	loop	l1
+	
+	int 20h
+
 
 
