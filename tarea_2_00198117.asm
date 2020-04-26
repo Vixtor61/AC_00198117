@@ -1,7 +1,7 @@
 	org	100h
 section	.text
 			;carnet: 00198117
-;ej 1			
+			;ej 1			
 	mov	di, 0d
 	mov	cx, 0000h
 	mov	ax, 0000h
@@ -18,11 +18,9 @@ section	.text
 
 j5:	mov	cx, mlen5
 	mov 	ax, msg5
-	mov 	[301h], ax
 	jmp	lupi
 
-lupi:	
-	mov	bx, [301h]
+lupi:	mov	bx, ax
 	mov	bl, [bx+di]
 	mov	[di+200h], bl
 	inc	di
@@ -35,17 +33,14 @@ mlen5	equ	$ - msg5
 
 section	.text
 			;carnet: 00198117
-;ej 2 210
-	
+			;ej 2 
 	mov	bx, 2			
 	mov 	ax, 4d
 	mov	cx, 11
 	mov	si, 0d
 	
 	mov	al,4d
-l1:	mov	[210h+si], ax
-
-	
+l1:	mov	[210h+si], ax	
 	mul	bx
 	cmp	ax,256d
 	ja	jmp2
@@ -55,7 +50,7 @@ jmp2:	add	si,2d
 jmp3:	loop	l1
 	
 section .text
-;ej 3
+			;ej 3
 	mov	ax, 0001h			
 	mov 	bx, 0000h
 	mov	cx, 13
