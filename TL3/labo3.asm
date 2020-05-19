@@ -35,13 +35,14 @@ kbwait: mov 	ax, 0000h
 
 m_cursr:mov 	ah, 02h
 	mov 	dx, di  ; columna
+	add	dl, 29d
 	mov 	dh, 12d ; fila
 	mov 	bh, 0h
 	int 	10h
 	ret
 
-phrase:	mov 	di, 29d
-lupi:	mov 	cl, [msg+di-29d]
+phrase:	mov 	di, 0d
+lupi:	mov 	cl, [msg+di]
 	call    m_cursr
 	call 	w_char
 	inc	di
@@ -52,4 +53,4 @@ lupi:	mov 	cl, [msg+di-29d]
 
 section .data
 msg	db 	"Mami que tu quiere? "
-len 	equ	$-msg+29d
+len 	equ	$-msg
