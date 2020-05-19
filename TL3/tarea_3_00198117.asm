@@ -39,7 +39,7 @@ kbwait: mov 	ax, 0000h
 m_cursr:mov 	ah, 02h
 	mov 	dx, di  ; columna
 	add	dl, [210h]
-	mov 	dh, [220h] ; fila
+	mov 	dh, [211h] ; fila
 	mov 	bh, 0h
 	int 	10h
 	ret
@@ -57,10 +57,8 @@ lupi:	mov	bx, [200h]
 
 smsg1:	mov	ax, msg1; message
 	mov	[200h], ax
-	mov	ax, 40d;columna
+	mov	ax, 0328h;fila,03d;columna,40d
 	mov	[210h], ax
-	mov	ax, 3d;fila
-	mov	[220h], ax
 	mov	ax, len1;lenght
 	mov	[230h], ax
 	call 	phrase
@@ -68,10 +66,8 @@ smsg1:	mov	ax, msg1; message
 
 smsg2:	mov	ax, msg2; message
 	mov	[200h], ax
-	mov	ax, 10d;columna
+	mov	ax, 0b0ah;fila,11d;columna,10d
 	mov	[210h], ax
-	mov	ax, 11d;fila
-	mov	[220h], ax
 	mov	ax, len2;lenght
 	mov	[230h], ax
 	call 	phrase
@@ -79,20 +75,12 @@ smsg2:	mov	ax, msg2; message
 
 smsg3:	mov	ax, msg3; message
 	mov	[200h], ax
-	mov	ax, 50d;columna
+	mov	ax, 1332h;fila,19d;columna,50d
 	mov	[210h], ax
-	mov	ax, 19d;fila
-	mov	[220h], ax
 	mov	ax, len3;lenght
 	mov	[230h], ax
 	call 	phrase
 	ret
-
-
-
-
-
-
 
 section .data
 msg1	db 	"El disco anal"
