@@ -1,4 +1,4 @@
-	
+	org 100h
 section .text
 
 	mov	ax , [200h];10 dolares en centavos
