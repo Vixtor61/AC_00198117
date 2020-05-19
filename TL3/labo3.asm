@@ -54,3 +54,7 @@ lupi:	mov 	cl, [msg+di]
 section .data
 msg	db 	"Mami que tu quiere? "
 len 	equ	$-msg
+msg	db 	"Mi waifu >>>>> tu waifu"
+len 	equ	$-msg
+msg	db 	"Caliente Caliente"
+len 	equ	$-msg
