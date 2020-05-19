@@ -4,15 +4,10 @@ section .text
 
 	call 	texto	
 	call 	cursor
-	mov	ax, msg; message
-	mov	[200h], ax
-	mov	ax, 50d;columna
-	mov	[210h], ax
-	mov	ax, 0d;fila
-	mov	[220h], ax
-	mov	ax, len;lenght
-	mov	[230h], ax
-	call 	phrase
+	call	smsg1
+	call	smsg2
+	call	smsg3
+
 	call	kbwait
 
 	int 	20h
@@ -60,11 +55,49 @@ lupi:	mov	bx, [200h]
 	jb	lupi
 	ret
 
+smsg1:	mov	ax, msg1; message
+	mov	[200h], ax
+	mov	ax, 40d;columna
+	mov	[210h], ax
+	mov	ax, 5d;fila
+	mov	[220h], ax
+	mov	ax, len1;lenght
+	mov	[230h], ax
+	call 	phrase
+	ret
+
+smsg2:	mov	ax, msg2; message
+	mov	[200h], ax
+	mov	ax, 10d;columna
+	mov	[210h], ax
+	mov	ax, 13d;fila
+	mov	[220h], ax
+	mov	ax, len2;lenght
+	mov	[230h], ax
+	call 	phrase
+	ret
+
+smsg3:	mov	ax, msg3; message
+	mov	[200h], ax
+	mov	ax, 50d;columna
+	mov	[210h], ax
+	mov	ax, 21d;fila
+	mov	[220h], ax
+	mov	ax, len3;lenght
+	mov	[230h], ax
+	call 	phrase
+	ret
+
+
+
+
+
+
 
 section .data
-msg	db 	"Mami que tu quiere? "
-len 	equ	$-msg
-msg1	db 	"Mi waifu >>>>> tu waifu"
-len1 	equ	$-msg1
-msg2	db 	"Caliente Caliente"
+msg1	db 	"Mami que tu quiere? "
+len1	equ	$-msg1
+msg2	db 	"Mi waifu >>>>> tu waifu"
 len2 	equ	$-msg2
+msg3	db 	"Caliente Caliente"
+len3 	equ	$-msg3
