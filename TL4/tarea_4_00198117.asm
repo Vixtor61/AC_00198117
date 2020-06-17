@@ -5,7 +5,7 @@ section	.text
                       
 
         xor 	si, si 	;lo mimso que: mov si, 0000h
-        mov     cx, len
+        
 lupi:	call 	kb
 	jmp    is_digit
 yes:    add     [res], al  
@@ -109,25 +109,25 @@ j10:     mov     dx, msg10
 
 
 section .data
-msg10   db      0Ah,"Perfecto solo Dios$"
+msg10   db      0Ah,"Perfecto solo Dios" , 0Ah , "$"
 
-msg5	db	0Ah,"En el segundo$"
+msg5	db	0Ah,"En el segundo" , 0Ah , "$"
 
-msg9    db      0Ah,"Siempre me esfuerzo$"
+msg9    db      0Ah,"Siempre me esfuerzo" , 0Ah , "$"
 
-msg4    db      0Ah,"Me recupero$"
+msg4    db      0Ah,"Me recupero" , 0Ah , "$"
 
-msg8    db      0Ah,"Colocho$"
+msg8    db      0Ah,"Colocho" , 0Ah , "$"
 
-msg3    db      0Ah,"Hay salud$"
+msg3    db      0Ah,"Hay salud" , 0Ah , "$"
 
-msg7    db      0Ah, "Muy bien$"
+msg7    db      0Ah, "Muy bien" , 0Ah , "$"
 
-msg2    db      0Ah,"Aun se pasa$"
+msg2    db      0Ah,"Aun se pasa" , 0Ah , "$"
 
-msg6    db      0Ah,"Peor es nada$"
+msg6    db      0Ah,"Peor es nada" , 0Ah , "$"
 
-msg1    db      0Ah,"Solo necesito el 0$"
+msg1    db      0Ah,"Solo necesito el 0" , 0Ah , "$"
 
 res     db      0h     
 
