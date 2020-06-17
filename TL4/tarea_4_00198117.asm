@@ -5,7 +5,7 @@ section	.text           ;carnet: 00198117
         
 lup:	call 	kb
 	jmp     is_digit
-it_is:    add     [res], al  
+it_is:  add     [res], al  
 	inc 	si
         cmp 	si, len
 	je	avg
@@ -22,7 +22,7 @@ kb: 	mov	ah, 1h
 	int 	21h
 	ret
 
-w_string:mov     ah, 9 
+w_string:       mov     ah, 9 
         int     21h 
         ret
 
