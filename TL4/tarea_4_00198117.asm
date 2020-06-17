@@ -1,18 +1,15 @@
 	org	100h
-;carnet: 00198117
-section	.text
-			;ej 1	
-                      
 
-        xor 	si, si 	;lo mimso que: mov si, 0000h
+section	.text           ;carnet: 00198117 
+        xor 	si, si 	
         
-lupi:	call 	kb
-	jmp    is_digit
-yes:    add     [res], al  
+lup:	call 	kb
+	jmp     is_digit
+it_is:    add     [res], al  
 	inc 	si
         cmp 	si, len
 	je	avg
-	jmp 	lupi
+	jmp 	lup
 return: call    kb
         int     20h
 
@@ -29,12 +26,16 @@ w_string:mov     ah, 9
         int     21h 
         ret
 
-is_digit:cmp     al, 30h
-        jb      lupi
+is_digit:       cmp     al, 30h
+        jb      del_char
         cmp     al, 39h
-        ja      lupi
+        ja      del_char
         sub     al, 30h
-        jmp     yes	
+        jmp     it_is	
+
+del_char:    mov     dx, del
+        call    w_string
+        jmp     lup
 
 case:	cmp	al,01h
 	je	j1
@@ -104,31 +105,18 @@ j10:     mov     dx, msg10
         call    w_string
         jmp     return
 
-
-
-
-
 section .data
 msg10   db      0Ah,"Perfecto solo Dios" , 0Ah , "$"
-
 msg5	db	0Ah,"En el segundo" , 0Ah , "$"
-
 msg9    db      0Ah,"Siempre me esfuerzo" , 0Ah , "$"
-
 msg4    db      0Ah,"Me recupero" , 0Ah , "$"
-
 msg8    db      0Ah,"Colocho" , 0Ah , "$"
-
 msg3    db      0Ah,"Hay salud" , 0Ah , "$"
-
 msg7    db      0Ah, "Muy bien" , 0Ah , "$"
-
 msg2    db      0Ah,"Aun se pasa" , 0Ah , "$"
-
 msg6    db      0Ah,"Peor es nada" , 0Ah , "$"
-
 msg1    db      0Ah,"Solo necesito el 0" , 0Ah , "$"
 
-res     db      0h     
-
-len     equ     5h      
+del     db      08h, 20h, 08h,"$";delete keyboard input from screen
+res     db      0h; res from sum     
+len     equ     5h; input lenght      
