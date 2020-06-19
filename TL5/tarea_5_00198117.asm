@@ -36,7 +36,7 @@ v_mode: mov     ah,     00h
         ret
 
 pix:    mov     ah,     0Ch
-        mov	al,     1010b
+        mov	al,     1011b
         int     10h
         ret
  
