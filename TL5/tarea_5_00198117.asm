@@ -2,7 +2,6 @@
 section .text
         call    v_mode
 	call 	d_set	
-	call	kb
 	mov	ax,[mid]
 	
 	mov	bl,4h
@@ -29,7 +28,7 @@ section .text
 
 	call	kb
 	int	20h
-h_set	xor	di,	di
+h_set	xor	di,	di;draws horizontal line
 h_line	mov	cx,	[x]
 	mov	dx,	[y]
 	add	cx,	di
@@ -39,7 +38,7 @@ h_line	mov	cx,	[x]
 	jb	h_line
 	ret
 
-d_set	xor	di,	di
+d_set	xor	di,	di;draws diagonal line
 	mov	ax,	[y]
 	mov	[200h], ax
 	mov     ax,     [lenght]
@@ -73,7 +72,7 @@ kb:     mov     ah,     00h
         
         ret     
 v_mode: mov     ah,     00h
-        mov     al,     12h
+        mov     al,	12h
         int     10h
         ret
 
