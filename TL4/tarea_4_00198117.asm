@@ -2,7 +2,8 @@
 
 section	.text           ;carnet: 00198117 
         xor 	si, si 	
-        
+        call 	text  
+
 lup:	call 	kb
 	jmp     is_digit
 it_is:  add     [res], al  
@@ -37,6 +38,10 @@ del_char:    mov     dx, del
         call    w_string
         jmp     lup
 
+text:	mov 	ah, 00h
+	mov	al, 03h
+	int 	10h
+	ret
 case:	cmp	al,01h
 	je	j1
 
